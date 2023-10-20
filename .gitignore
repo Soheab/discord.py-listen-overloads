@@ -1,0 +1,14 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Local development settings
+.env
+
+# VSCode settings
+.vscode/
+
+# Python virtual environment
+venv/
+.venv/
