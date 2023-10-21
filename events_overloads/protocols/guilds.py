@@ -32,9 +32,7 @@ class GuildUpdateEvent(Protocol):
 
 # on_guild_emojis_update
 class GuildEmojisUpdateEvent(Protocol):
-    async def __call__(
-        self, guild: Guild, before: Sequence[Emoji], after: Sequence[Emoji]
-    ) -> Any:
+    async def __call__(self, guild: Guild, before: Sequence[Emoji], after: Sequence[Emoji]) -> Any:
         ...
 
 

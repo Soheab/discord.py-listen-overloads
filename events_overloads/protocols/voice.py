@@ -10,7 +10,5 @@ __all__ = ("VoiceStateUpdateEvent",)
 
 # on_voice_state_update
 class VoiceStateUpdateEvent(Protocol):
-    async def __call__(
-        self, member: Member, before: VoiceState, after: VoiceState
-    ) -> Any:
+    async def __call__(self, member: Member, before: VoiceState, after: VoiceState) -> Any:
         ...

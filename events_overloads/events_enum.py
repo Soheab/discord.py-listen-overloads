@@ -1,6 +1,6 @@
 from typing import Literal
 
-from discord import Enum
+from enum import Enum
 
 PossibleEventsWithOn = Literal[
     # App commands

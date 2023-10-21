@@ -55,9 +55,7 @@ class PrivateChannelPinsUpdateEvent(Protocol):
 
 # on_typing
 class TypingEvent(Protocol):
-    async def __call__(
-        self, channel: Messageable, user: Union[Member, User], when: datetime
-    ) -> Any:
+    async def __call__(self, channel: Messageable, user: Union[Member, User], when: datetime) -> Any:
         ...
 
 

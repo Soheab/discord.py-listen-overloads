@@ -30,6 +30,7 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
 ]
 
+
 [project.optional-dependencies]
 dev = ["black", "ruff", "typing_extensions"]
 docs = [
@@ -41,11 +42,10 @@ docs = [
 ]
 
 [tool.setuptools]
-packages = ["events_overloads", "events_overloads.protocols"]
+packages = ["events_overloads", "events_overloads.protocols", "events_overloads.discord-stubs", "events_overloads.discord-stubs.ext", "events_overloads.discord-stubs.ext.commands"]
 
 [project.urls]
 homepage = "https://github.com/Soheab/discord.py-event-overloads"
-# documentation = "...""
 repository = "https://github.com/Soheab/discord.py-event-overloads"
 
 [tool.setuptools.dynamic]
@@ -53,27 +53,32 @@ version = { attr = "events_overloads.__version__" }
 readme = { file = ["README.rst"], content-type = "text/x-rst" }
 
 [tool.pyright]
-include = ["events_overloads", "events_overloads.protocols"]
-exclude = ["**/__pycache__", "_build", "build", "dist", "docs"]
+include = ["events_overloads", "events_overloads/protocols", "events_overloads/discord-stubs", "events_overloads/discord-stubs/ext", "events_overloads/discord-stubs/ext/commands"]
+exclude = ["**/__pycache__", "_build", "build", "dist", "docs", "events_overloads/*.py"]
 reportUnnecessaryTypeIgnoreComment = "warning"
 reportUnusedImport = "error"
 pythonVersion = "3.8"
 typeCheckingMode = "strict"
 reportDuplicateImport = "warning"
 reportDeprecated = "warning"
+reportUnusedVariable = "none"
+reportInvalidStubStatement = true
+reportMissingTypeStubs = true
+stubPath = "events_overloads/discord-stubs"
 
 [tool.coverage.report]
 exclude_lines = ["pragma: no cover", "@overload"]
 
 [tool.black]
 line-length = 120
+include = '\.pyi?$'
 
 # https://beta.ruff.rs/docs/settings/
 [tool.ruff]
 fix = true # default: false
 line-length = 120 # default: 88
 fixable = ["ALL"]  # default: ["ALL"]
-include = ["events_overloads", "events_overloads.protocols"]
+include = ["events_overloads", "events_overloads/protocols", "events_overloads/discord-stubs", "events_overloads/discord-stubs/ext", "events_overloads/discord-stubs/ext/commands"]
 exclude = ["**/__pycache__", "_build", "build", "dist", "docs"]
 respect-gitignore = false  # default: true
 tab-size = 4  # default: 4
