@@ -31,8 +31,8 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
 ]
 
-[tool.setuptools.packages.find]
-include = ["listen_overloads", "listen_overloads.protocols", "listen_overloads.discord-stubs*"]
+#[tool.setuptools.packages.find]
+#include = ["listen_overloads", "listen_overloads.protocols", "listen_overloads.discord-stubs*"]
 
 [project.optional-dependencies]
 dev = ["black", "ruff"]
