@@ -31,16 +31,11 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
 ]
 
+[tool.setuptools.packages.find]
+include = ["listen_overloads*"]
 
 [project.optional-dependencies]
 dev = ["black", "ruff"]
-
-[tool.setuptools]
-packages = [
-    "listen_overloads",
-    "listen_overloads.protocols",
-    "listen_overloads.discord-stubs",
-]
 
 [project.urls]
 homepage = "https://github.com/Soheab/discord.py-event-overloads"
