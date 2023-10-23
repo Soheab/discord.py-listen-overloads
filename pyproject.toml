@@ -3,8 +3,8 @@ requires      = ["setuptools>=61.0.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "discord-events-overloads"
-description = "A package that adds overloads to discord.py events."
+name = "discord.py-listen-overloads"
+description = "A package that adds overloads to the commands.Bot.listen decorator."
 authors = [{ name = "Soheab_" }]
 requires-python = ">=3.8"
 keywords = [
@@ -13,7 +13,8 @@ keywords = [
     "discord",
     "events",
     "stubs",
-    "overloads"
+    "overloads",
+    "listen"
 ]
 license = { file = "LICENSE" }
 dependencies = ["discord.py>=2.0.0, <3.0.0"]
@@ -32,23 +33,16 @@ classifiers = [
 
 
 [project.optional-dependencies]
-dev = ["black", "ruff", "typing_extensions"]
-docs = [
-    "Sphinx==6.1",
-    "furo",
-    # "sphinx_rtd_theme==1.2.*",
-    "sphinx-autodoc-typehints==1.22",
-    "enum-tools[sphinx]==0.9.*",
-]
+dev = ["black", "ruff"]
 
 [tool.setuptools]
 packages = [
-    "events_overloads",
-    "events_overloads.typings",
-    "events_overloads.typings.discord",
-    "events_overloads.typings.discord.ext",
-    "events_overloads.typings.discord.ext.commands",
-    "events_overloads.protocols",
+    "listen_overloads",
+    "listen_overloads.typings",
+    "listen_overloads.typings.discord",
+    "listen_overloads.typings.discord.ext",
+    "listen_overloads.typings.discord.ext.commands",
+    "listen_overloads.protocols",
 ]
 
 [project.urls]
@@ -56,12 +50,12 @@ homepage = "https://github.com/Soheab/discord.py-event-overloads"
 repository = "https://github.com/Soheab/discord.py-event-overloads"
 
 [tool.setuptools.dynamic]
-version = { attr = "events_overloads.__version__" }
-readme = { file = ["README.rst"], content-type = "text/x-rst" }
+version = { attr = "listen_overloads.__version__" }
+readme = { file = ["README.md"], content-type = "text/markdown" }
 
 [tool.pyright]
-include = ["events_overloads", "events_overloads/protocols", "events_overloads/typings", "events_overloads/typings/discord/", "events_overloads/typings/discord/ext", "events_overloads/typings/discord/ext/commands"]
-exclude = ["**/__pycache__", "_build", "build", "dist", "docs", "events_overloads/*.py"]
+include = ["listen_overloads", "listen_overloads/protocols", "listen_overloads/typings", "listen_overloads/typings/discord/", "listen_overloads/typings/discord/ext", "listen_overloads/typings/discord/ext/commands"]
+exclude = ["**/__pycache__", "dist"]
 reportUnnecessaryTypeIgnoreComment = "warning"
 reportUnusedImport = "error"
 pythonVersion = "3.8"
@@ -71,7 +65,7 @@ reportDeprecated = "warning"
 reportUnusedVariable = "none"
 reportInvalidStubStatement = true
 reportMissingTypeStubs = true
-stubPath = "events_overloads/typings"
+stubPath = "listen_overloads/typings"
 
 [tool.coverage.report]
 exclude_lines = ["pragma: no cover", "@overload"]
@@ -85,8 +79,8 @@ include = '\.pyi?$'
 fix = true # default: false
 line-length = 120 # default: 88
 fixable = ["ALL"]  # default: ["ALL"]
-include = ["events_overloads", "events_overloads/protocols", "events_overloads/typings", "events_overloads/typings/discord/", "events_overloads/typings/discord/ext", "events_overloads/typings/discord/ext/commands"]
-exclude = ["**/__pycache__", "_build", "build", "dist", "docs"]
+include = ["listen_overloads", "listen_overloads/protocols", "listen_overloads/typings", "listen_overloads/typings/discord/", "listen_overloads/typings/discord/ext", "listen_overloads/typings/discord/ext/commands"]
+exclude = ["**/__pycache__", "dist",]
 respect-gitignore = false  # default: true
 tab-size = 4  # default: 4
 target-version = "py38"  # default: "py38"
