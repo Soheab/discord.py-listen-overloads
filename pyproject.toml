@@ -31,17 +31,17 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
 ]
 
-#[tool.setuptools.packages.find]
-#include = ["listen_overloads", "listen_overloads.protocols", "listen_overloads.discord-stubs*"]
+[tool.setuptools.packages.find]
+include = ["listen_overloads*", "listen_overloads.protocols*", "listen_overloads.discord-stubs*"]
 
-[tool.setuptools]
-packages = [
-    "listen_overloads",
-    "listen_overloads.lol",
-    "listen_overloads.lol.ext",
-    "listen_overloads.lol.ext.commands",
-    "listen_overloads.protocols",
-]
+#[tool.setuptools]
+#packages = [
+#    "listen_overloads",
+#    "listen_overloads.discord-stubs",
+#    "listen_overloads.discord-stubs.ext",
+#    "listen_overloads.discord-stubs.ext.commands",
+#    "listen_overloads.protocols",
+#]
 
 [project.optional-dependencies]
 dev = ["black", "ruff"]
