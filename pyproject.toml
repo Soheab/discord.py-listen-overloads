@@ -39,8 +39,9 @@ packages = [
     "listen_overloads",
     "listen_overloads.protocols",
     "listen_overloads.typings",
+    "listen_overloads.typings.discord",
     "listen_overloads.typings.discord.ext",
-    "listen_overloads.typings.ext.commands",
+    "listen_overloads.typings.discord.ext.commands",
 ]
 
 [project.optional-dependencies]
