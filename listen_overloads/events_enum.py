@@ -113,6 +113,9 @@ PossibleEventsWithOn = Literal[
     "on_voice_state_update",
 ]
 
+
+# may use this in the future idk
+
 PossibleEvents = Literal[
     # App commands
     "raw_app_command_permissions_update",
