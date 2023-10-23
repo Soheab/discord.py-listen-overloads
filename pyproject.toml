@@ -32,14 +32,14 @@ classifiers = [
 ]
 
 [tool.setuptools.packages.find]
-include = ["listen_overloads*"]
+include = ["listen_overloads"]
 
 [project.optional-dependencies]
 dev = ["black", "ruff"]
 
 [project.urls]
-homepage = "https://github.com/Soheab/discord.py-event-overloads"
-repository = "https://github.com/Soheab/discord.py-event-overloads"
+homepage = "https://github.com/Soheab/discord.py-listen-overloads"
+repository = "https://github.com/Soheab/discord.py-listen-overloads"
 
 [tool.setuptools.dynamic]
 version = { attr = "listen_overloads.__version__" }
