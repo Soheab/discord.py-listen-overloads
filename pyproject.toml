@@ -31,8 +31,20 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
 ]
 
-[tool.setuptools.packages.find]
-where = ["listen_overloads"]
+[tool.setuptools]
+packages = [
+    "listen_overloads",
+    "listen_overloads.app_commands",
+    "listen_overloads.ext",
+    "listen_overloads.ext.commands",
+    "listen_overloads.ext.commands.events_overloads",
+    "listen_overloads.ext.tasks",
+    "listen_overloads.types",
+    "listen_overloads.ui",
+    "listen_overloads.webhook",
+
+
+]
 
 #[tool.setuptools]
 #packages = [
