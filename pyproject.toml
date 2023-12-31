@@ -34,14 +34,15 @@ classifiers = [
 [tool.setuptools]
 packages = [
     "listen_overloads",
-    "listen_overloads.app_commands",
-    "listen_overloads.ext",
-    "listen_overloads.ext.commands",
-    "listen_overloads.ext.commands.events_overloads",
-    "listen_overloads.ext.tasks",
-    "listen_overloads.types",
-    "listen_overloads.ui",
-    "listen_overloads.webhook",
+    "listen_overloads.discord",
+    "listen_overloads.discord.app_commands",
+    "listen_overloads.discord.ext",
+    "listen_overloads.discord.ext.commands",
+    "listen_overloads.discord.ext.commands.events_overloads",
+    "listen_overloads.discord.ext.tasks",
+    "listen_overloads.discord.types",
+    "listen_overloads.discord.ui",
+    "listen_overloads.discord.webhook",
 
 
 ]
