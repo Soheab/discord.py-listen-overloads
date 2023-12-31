@@ -32,7 +32,7 @@ classifiers = [
 ]
 
 [tool.setuptools.packages.find]
-where = ["listen_overloads/"]
+where = ["."]
 
 #[tool.setuptools]
 #packages = [
