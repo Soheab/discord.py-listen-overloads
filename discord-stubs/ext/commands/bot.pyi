@@ -882,7 +882,7 @@ class BotBase(GroupMixin[None]):
     def listen(
         self,
         name: Literal["on_command_error",],
-    ) -> EventCallable[events_overloads_ext_commands.CommandError]: ...
+    ) -> EventCallable[events_overloads_ext_commands.CommandErrorEvent]: ...
 
     # --- Voice ---
 
@@ -893,7 +893,15 @@ class BotBase(GroupMixin[None]):
             "on_command",
             "on_command_completion",
         ],
-    ) -> EventCallable[events_overloads_ext_commands.Command]: ...
+    ) -> EventCallable[events_overloads_ext_commands.CommandEvents]:
+        """|coro| A decorator that registers another function as a command listener.
+
+        Parameters
+        -----------
+        command: :class:`Command`
+            The command to listen to.
+        """
+        ...
     def listen(self, name: str = ...) -> Callable[[CFT], CFT]:
         """A decorator that registers another function as an external
         event listener. Basically this allows you to listen to multiple
