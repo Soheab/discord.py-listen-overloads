@@ -4,11 +4,11 @@ from typing import Any, TYPE_CHECKING, Protocol
 if TYPE_CHECKING:
     from discord.ext.commands import CommandError, Context
 
-__all__ = ("EntitlementEvent",)
+__all__ = ("CommandErrorEvent", "CommandEvents")
 
 
 # on_command_error
-class CommandError(Protocol):
+class CommandErrorEvent(Protocol):
     async def __call__(
         self,
         ctx: Context[Any],
@@ -19,7 +19,7 @@ class CommandError(Protocol):
 
 # on_command
 # on_command_completion
-class OnCommand(Protocol):
+class CommandEvents(Protocol):
     async def __call__(
         self,
         ctx: Context[Any],

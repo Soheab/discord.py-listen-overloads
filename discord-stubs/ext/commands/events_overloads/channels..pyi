@@ -21,45 +21,31 @@ __all__ = (
     "RawTypingEvent",
 )
 
-
 # on_guild_channel_delete
 # on_guild_channel_create
 class GuildChannelCreateDeleteEvent(Protocol):
-    async def __call__(self, channel: GuildChannel) -> Any:
-        ...
-
+    async def __call__(self, channel: GuildChannel) -> Any: ...
 
 # on_guild_channel_update
 class GuildChannelUpdateEvent(Protocol):
-    async def __call__(self, before: GuildChannel, after: GuildChannel) -> Any:
-        ...
-
+    async def __call__(self, before: GuildChannel, after: GuildChannel) -> Any: ...
 
 # on_guild_channel_pins_update
 class GuildChannelPinsUpdateEvent(Protocol):
-    async def __call__(self, channel: GuildChannel, last_pin: datetime) -> Any:
-        ...
-
+    async def __call__(self, channel: GuildChannel, last_pin: datetime) -> Any: ...
 
 # on_private_channel_update
 class PrivateChannelUpdateEvent(Protocol):
-    async def __call__(self, before: GroupChannel, after: GroupChannel) -> Any:
-        ...
-
+    async def __call__(self, before: GroupChannel, after: GroupChannel) -> Any: ...
 
 # on_private_channel_pins_update
 class PrivateChannelPinsUpdateEvent(Protocol):
-    async def __call__(self, channel: GroupChannel, last_pin: datetime) -> Any:
-        ...
-
+    async def __call__(self, channel: GroupChannel, last_pin: datetime) -> Any: ...
 
 # on_typing
 class TypingEvent(Protocol):
-    async def __call__(self, channel: Messageable, user: Union[Member, User], when: datetime) -> Any:
-        ...
-
+    async def __call__(self, channel: Messageable, user: Union[Member, User], when: datetime) -> Any: ...
 
 # on_raw_typing
 class RawTypingEvent(Protocol):
-    async def __call__(self, payload: RawTypingEventPayload) -> Any:
-        ...
+    async def __call__(self, payload: RawTypingEventPayload) -> Any: ...

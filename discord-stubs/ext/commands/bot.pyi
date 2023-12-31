@@ -31,7 +31,7 @@ from typing_extensions import Self
 from discord.message import Message
 from discord.interactions import Interaction
 from discord.abc import Snowflake, User
-from ._types import BotT, ContextT, CoroFunc, MaybeAwaitableFunc, UserCheck, _Bot
+from ._types import BotT, ContextT, CoroFunc, MaybeAwaitableFunc, UserCheck, _Bot  # type: ignore
 
 """
 The MIT License (MIT)
@@ -60,12 +60,16 @@ if TYPE_CHECKING:
     _Prefix = Union[Iterable[str], str]
     _PrefixCallable = MaybeAwaitableFunc[[BotT, Message], _Prefix]
     PrefixType = Union[_Prefix, _PrefixCallable[BotT]]
+
+    # fmt: off
+    import events_overloads as events_overloads
+
+    # fmt: on
+
 __all__ = ("when_mentioned", "when_mentioned_or", "Bot", "AutoShardedBot")
 T = TypeVar("T")
 CFT = TypeVar("CFT", bound="CoroFunc")
 _log = ...
-
-import events_overloads
 
 CoroFunc = Callable[..., Coroutine[Any, Any, Any]]
 EventT = TypeVar("EventT")
