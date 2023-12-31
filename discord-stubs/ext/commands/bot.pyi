@@ -62,7 +62,27 @@ if TYPE_CHECKING:
     PrefixType = Union[_Prefix, _PrefixCallable[BotT]]
 
     # fmt: off
-    import events_overloads as events_overloads
+    from .events_overloads import (
+        app_commands as events_overloads_app_commands,
+        automod as events_overloads_automod,
+        channels as events_overloads_channels,
+        connection as events_overloads_connection,
+        debug as events_overloads_debug,
+        entitlements as events_overloads_entitlements,
+        ext_commands as events_overloads_ext_commands,
+        gateway as events_overloads_gateway,
+        guilds as events_overloads_guilds,
+        integrations as events_overloads_integrations,
+        interactions as events_overloads_interactions,
+        members as events_overloads_members,
+        messages as events_overloads_messages,
+        reactions as events_overloads_reactions,
+        roles as events_overloads_roles,
+        scheduled_events as events_overloads_scheduled_events,
+        stages as events_overloads_stages,
+        threads as events_overloads_threads,
+        voice as events_overloads_voice,
+    )
 
     # fmt: on
 
@@ -431,12 +451,12 @@ class BotBase(GroupMixin[None]):
     def listen(
         self,
         name: Literal["on_app_command_completion",] = ...,
-    ) -> EventCallable[events_overloads.app_commands.ApplicationCommandCompletionEvent]: ...
+    ) -> EventCallable[events_overloads_app_commands.ApplicationCommandCompletionEvent]: ...
     @overload
     def listen(
         self,
         name: Literal["on_raw_app_command_permissions_update",] = ...,
-    ) -> EventCallable[events_overloads.app_commands.RawApplicationCommandPermissionsUpdateEvent]: ...
+    ) -> EventCallable[events_overloads_app_commands.RawApplicationCommandPermissionsUpdateEvent]: ...
 
     # --- Automod ---
 
@@ -444,7 +464,7 @@ class BotBase(GroupMixin[None]):
     def listen(
         self,
         name: Literal["on_automod_action",],
-    ) -> EventCallable[events_overloads.automod.AutoModActionEvent]: ...
+    ) -> EventCallable[events_overloads_automod.AutoModActionEvent]: ...
     @overload
     def listen(
         self,
@@ -453,7 +473,7 @@ class BotBase(GroupMixin[None]):
             "on_automod_rule_update",
             "on_automod_rule_delete",
         ] = ...,
-    ) -> EventCallable[events_overloads.automod.AutoModRuleEvents]: ...
+    ) -> EventCallable[events_overloads_automod.AutoModRuleEvents]: ...
 
     # --- Channels ---
     @overload
@@ -463,37 +483,37 @@ class BotBase(GroupMixin[None]):
             "on_guild_channel_create",
             "on_guild_channel_delete",
         ],
-    ) -> EventCallable[events_overloads.channels.GuildChannelCreateDeleteEvent]: ...
+    ) -> EventCallable[events_overloads_channels.GuildChannelCreateDeleteEvent]: ...
     @overload
     def listen(
         self,
         name: Literal["on_guild_channel_update",],
-    ) -> EventCallable[events_overloads.channels.GuildChannelUpdateEvent]: ...
+    ) -> EventCallable[events_overloads_channels.GuildChannelUpdateEvent]: ...
     @overload
     def listen(
         self,
         name: Literal["on_guild_channel_pins_update",],
-    ) -> EventCallable[events_overloads.channels.GuildChannelPinsUpdateEvent]: ...
+    ) -> EventCallable[events_overloads_channels.GuildChannelPinsUpdateEvent]: ...
     @overload
     def listen(
         self,
         name: Literal["on_private_channel_update",],
-    ) -> EventCallable[events_overloads.channels.PrivateChannelUpdateEvent]: ...
+    ) -> EventCallable[events_overloads_channels.PrivateChannelUpdateEvent]: ...
     @overload
     def listen(
         self,
         name: Literal["on_private_channel_pins_update",],
-    ) -> EventCallable[events_overloads.channels.PrivateChannelPinsUpdateEvent]: ...
+    ) -> EventCallable[events_overloads_channels.PrivateChannelPinsUpdateEvent]: ...
     @overload
     def listen(
         self,
         name: Literal["on_typing",],
-    ) -> EventCallable[events_overloads.channels.TypingEvent]: ...
+    ) -> EventCallable[events_overloads_channels.TypingEvent]: ...
     @overload
     def listen(
         self,
         name: Literal["on_raw_typing",],
-    ) -> EventCallable[events_overloads.channels.RawTypingEvent]: ...
+    ) -> EventCallable[events_overloads_channels.RawTypingEvent]: ...
 
     # --- Connection ---
 
@@ -501,12 +521,12 @@ class BotBase(GroupMixin[None]):
     def listen(
         self,
         name: Literal["on_connect",],
-    ) -> EventCallable[events_overloads.connection.ConnectEvent]: ...
+    ) -> EventCallable[events_overloads_connection.ConnectEvent]: ...
     @overload
     def listen(
         self,
         name: Literal["on_disconnect",],
-    ) -> EventCallable[events_overloads.connection.DisconnectEvent]: ...
+    ) -> EventCallable[events_overloads_connection.DisconnectEvent]: ...
     @overload
     def listen(
         self,
@@ -517,7 +537,7 @@ class BotBase(GroupMixin[None]):
             "on_shard_ready",
             "on_shard_resumed",
         ],
-    ) -> EventCallable[events_overloads.connection.ShardEvent]: ...
+    ) -> EventCallable[events_overloads_connection.ShardEvent]: ...
 
     # --- Debug ---
 
@@ -525,22 +545,22 @@ class BotBase(GroupMixin[None]):
     def listen(
         self,
         name: Literal["on_error",],
-    ) -> EventCallable[events_overloads.debug.ErrorEvent]: ...
+    ) -> EventCallable[events_overloads_debug.ErrorEvent]: ...
     @overload
     def listen(
         self,
         name: Literal["on_socket_event_type",],
-    ) -> EventCallable[events_overloads.debug.SocketEventTypeEvent]: ...
+    ) -> EventCallable[events_overloads_debug.SocketEventTypeEvent]: ...
     @overload
     def listen(
         self,
         name: Literal["on_socket_raw_receive",],
-    ) -> EventCallable[events_overloads.debug.SocketRawReceiveEvent]: ...
+    ) -> EventCallable[events_overloads_debug.SocketRawReceiveEvent]: ...
     @overload
     def listen(
         self,
         name: Literal["on_socket_raw_send",],
-    ) -> EventCallable[events_overloads.debug.SocketRawSendEvent]: ...
+    ) -> EventCallable[events_overloads_debug.SocketRawSendEvent]: ...
 
     # --- Entitlements ---
 
@@ -552,7 +572,7 @@ class BotBase(GroupMixin[None]):
             "on_entitlement_delete",
             "on_entitlement_update",
         ],
-    ) -> EventCallable[events_overloads.entitlements.EntitlementEvent]: ...
+    ) -> EventCallable[events_overloads_entitlements.EntitlementEvent]: ...
 
     # --- Gateway ---
 
@@ -560,7 +580,7 @@ class BotBase(GroupMixin[None]):
     def listen(
         self,
         name: Literal["on_ready",],
-    ) -> EventCallable[events_overloads.gateway.ReadyEvent]: ...
+    ) -> EventCallable[events_overloads_gateway.ReadyEvent]: ...
 
     # --- Guilds ---
 
@@ -575,27 +595,27 @@ class BotBase(GroupMixin[None]):
             # integrations
             "on_guild_integrations_update",
         ],
-    ) -> EventCallable[events_overloads.guilds.GuildEvent]: ...
+    ) -> EventCallable[events_overloads_guilds.GuildEvent]: ...
     @overload
     def listen(
         self,
         name: Literal["on_guild_update",],
-    ) -> EventCallable[events_overloads.guilds.GuildUpdateEvent]: ...
+    ) -> EventCallable[events_overloads_guilds.GuildUpdateEvent]: ...
     @overload
     def listen(
         self,
         name: Literal["on_guild_emojis_update",],
-    ) -> EventCallable[events_overloads.guilds.GuildEmojisUpdateEvent]: ...
+    ) -> EventCallable[events_overloads_guilds.GuildEmojisUpdateEvent]: ...
     @overload
     def listen(
         self,
         name: Literal["on_guild_stickers_update",],
-    ) -> EventCallable[events_overloads.guilds.GuildStickersUpdateEvent]: ...
+    ) -> EventCallable[events_overloads_guilds.GuildStickersUpdateEvent]: ...
     @overload
     def listen(
         self,
         name: Literal["on_audit_log_entry_create",],
-    ) -> EventCallable[events_overloads.guilds.AuditLogEntryCreateEvent]: ...
+    ) -> EventCallable[events_overloads_guilds.AuditLogEntryCreateEvent]: ...
     @overload
     def listen(
         self,
@@ -603,7 +623,7 @@ class BotBase(GroupMixin[None]):
             "on_invite_create",
             "on_invite_delete",
         ],
-    ) -> EventCallable[events_overloads.guilds.InviteEvent]: ...
+    ) -> EventCallable[events_overloads_guilds.InviteEvent]: ...
 
     # --- Integrations ---
 
@@ -614,17 +634,17 @@ class BotBase(GroupMixin[None]):
             "on_integration_create",
             "on_integration_update",
         ],
-    ) -> EventCallable[events_overloads.integrations.IntegrationEvent]: ...
+    ) -> EventCallable[events_overloads_integrations.IntegrationEvent]: ...
     @overload
     def listen(
         self,
         name: Literal["on_webhooks_update",],
-    ) -> EventCallable[events_overloads.integrations.WebhooksUpdateEvent]: ...
+    ) -> EventCallable[events_overloads_integrations.WebhooksUpdateEvent]: ...
     @overload
     def listen(
         self,
         name: Literal["on_raw_integration_delete",],
-    ) -> EventCallable[events_overloads.integrations.RawIntegrationDeleteEvent]: ...
+    ) -> EventCallable[events_overloads_integrations.RawIntegrationDeleteEvent]: ...
 
     # --- Interactions ---
 
@@ -632,7 +652,7 @@ class BotBase(GroupMixin[None]):
     def listen(
         self,
         name: Literal["on_interaction",],
-    ) -> EventCallable[events_overloads.interactions.InteractionEvent]: ...
+    ) -> EventCallable[events_overloads_interactions.InteractionEvent]: ...
 
     # --- Members ---
 
@@ -643,12 +663,12 @@ class BotBase(GroupMixin[None]):
             "on_member_join",
             "on_member_remove",
         ],
-    ) -> EventCallable[events_overloads.members.MemberEvent]: ...
+    ) -> EventCallable[events_overloads_members.MemberEvent]: ...
     @overload
     def listen(
         self,
         name: Literal["on_raw_member_remove",],
-    ) -> EventCallable[events_overloads.members.RawMemberRemoveEvent]: ...
+    ) -> EventCallable[events_overloads_members.RawMemberRemoveEvent]: ...
     @overload
     def listen(
         self,
@@ -657,22 +677,22 @@ class BotBase(GroupMixin[None]):
             # presence
             "on_presence_update",
         ],
-    ) -> EventCallable[events_overloads.members.MemberUpdateEvent]: ...
+    ) -> EventCallable[events_overloads_members.MemberUpdateEvent]: ...
     @overload
     def listen(
         self,
         name: Literal["on_user_update",],
-    ) -> EventCallable[events_overloads.members.UserUpdateEvent]: ...
+    ) -> EventCallable[events_overloads_members.UserUpdateEvent]: ...
     @overload
     def listen(
         self,
         name: Literal["on_member_ban",],
-    ) -> EventCallable[events_overloads.members.MemberBanEvent]: ...
+    ) -> EventCallable[events_overloads_members.MemberBanEvent]: ...
     @overload
     def listen(
         self,
         name: Literal["on_member_unban",],
-    ) -> EventCallable[events_overloads.members.MemberUnbanEvent]: ...
+    ) -> EventCallable[events_overloads_members.MemberUnbanEvent]: ...
 
     # --- Messages ---
 
@@ -684,32 +704,32 @@ class BotBase(GroupMixin[None]):
             # delete
             "on_message_delete",
         ],
-    ) -> EventCallable[events_overloads.messages.MessageEvent]: ...
+    ) -> EventCallable[events_overloads_messages.MessageEvent]: ...
     @overload
     def listen(
         self,
         name: Literal["on_message_edit",],
-    ) -> EventCallable[events_overloads.messages.MessageEditEvent]: ...
+    ) -> EventCallable[events_overloads_messages.MessageEditEvent]: ...
     @overload
     def listen(
         self,
         name: Literal["on_bulk_message_delete",],
-    ) -> EventCallable[events_overloads.messages.BulkMessageDeleteEvent]: ...
+    ) -> EventCallable[events_overloads_messages.BulkMessageDeleteEvent]: ...
     @overload
     def listen(
         self,
         name: Literal["on_raw_message_edit",],
-    ) -> EventCallable[events_overloads.messages.RawMessageEditEvent]: ...
+    ) -> EventCallable[events_overloads_messages.RawMessageEditEvent]: ...
     @overload
     def listen(
         self,
         name: Literal["on_raw_message_delete",],
-    ) -> EventCallable[events_overloads.messages.RawMessageDeleteEvent]: ...
+    ) -> EventCallable[events_overloads_messages.RawMessageDeleteEvent]: ...
     @overload
     def listen(
         self,
         name: Literal["on_raw_bulk_message_delete",],
-    ) -> EventCallable[events_overloads.messages.RawBulkMessageDeleteEvent]: ...
+    ) -> EventCallable[events_overloads_messages.RawBulkMessageDeleteEvent]: ...
 
     # --- Reactions ---
 
@@ -720,17 +740,17 @@ class BotBase(GroupMixin[None]):
             "on_reaction_add",
             "on_reaction_remove",
         ],
-    ) -> EventCallable[events_overloads.reactions.ReactionEvent]: ...
+    ) -> EventCallable[events_overloads_reactions.ReactionEvent]: ...
     @overload
     def listen(
         self,
         name: Literal["on_reaction_clear",],
-    ) -> EventCallable[events_overloads.reactions.ReactionClearEvent]: ...
+    ) -> EventCallable[events_overloads_reactions.ReactionClearEvent]: ...
     @overload
     def listen(
         self,
         name: Literal["on_reaction_clear_emoji",],
-    ) -> EventCallable[events_overloads.reactions.ReactionClearEmojiEvent]: ...
+    ) -> EventCallable[events_overloads_reactions.ReactionClearEmojiEvent]: ...
     @overload
     def listen(
         self,
@@ -738,17 +758,17 @@ class BotBase(GroupMixin[None]):
             "on_raw_reaction_add",
             "on_raw_reaction_remove",
         ],
-    ) -> EventCallable[events_overloads.reactions.RawReactionActionEvent]: ...
+    ) -> EventCallable[events_overloads_reactions.RawReactionActionEvent]: ...
     @overload
     def listen(
         self,
         name: Literal["on_raw_reaction_clear",],
-    ) -> EventCallable[events_overloads.reactions.RawReactionClearEvent]: ...
+    ) -> EventCallable[events_overloads_reactions.RawReactionClearEvent]: ...
     @overload
     def listen(
         self,
         name: Literal["on_raw_reaction_clear_emoji",],
-    ) -> EventCallable[events_overloads.reactions.RawReactionClearEmojiEvent]: ...
+    ) -> EventCallable[events_overloads_reactions.RawReactionClearEmojiEvent]: ...
 
     # --- Roles ---
 
@@ -759,12 +779,12 @@ class BotBase(GroupMixin[None]):
             "on_guild_role_create",
             "on_guild_role_delete",
         ],
-    ) -> EventCallable[events_overloads.roles.GuildRoleEvent]: ...
+    ) -> EventCallable[events_overloads_roles.GuildRoleEvent]: ...
     @overload
     def listen(
         self,
         name: Literal["on_guild_role_update",],
-    ) -> EventCallable[events_overloads.roles.GuildRoleUpdateEvent]: ...
+    ) -> EventCallable[events_overloads_roles.GuildRoleUpdateEvent]: ...
 
     # --- Scheduled Events ---
 
@@ -775,12 +795,12 @@ class BotBase(GroupMixin[None]):
             "on_scheduled_event_create",
             "on_scheduled_event_delete",
         ],
-    ) -> EventCallable[events_overloads.scheduled_events.ScheduledEventEvent]: ...
+    ) -> EventCallable[events_overloads_scheduled_events.ScheduledEventEvent]: ...
     @overload
     def listen(
         self,
         name: Literal["on_scheduled_event_update",],
-    ) -> EventCallable[events_overloads.scheduled_events.ScheduledEventUpdateEvent]: ...
+    ) -> EventCallable[events_overloads_scheduled_events.ScheduledEventUpdateEvent]: ...
     @overload
     def listen(
         self,
@@ -789,7 +809,7 @@ class BotBase(GroupMixin[None]):
             "on_scheduled_event_user_remove",
             "scheduled_event_user_remove",
         ],
-    ) -> EventCallable[events_overloads.scheduled_events.ScheduledEventUserEvent]: ...
+    ) -> EventCallable[events_overloads_scheduled_events.ScheduledEventUserEvent]: ...
 
     # --- Stages ---
 
@@ -800,12 +820,12 @@ class BotBase(GroupMixin[None]):
             "on_stage_instance_create",
             "on_stage_instance_delete",
         ],
-    ) -> EventCallable[events_overloads.stages.StageInstanceEvent]: ...
+    ) -> EventCallable[events_overloads_stages.StageInstanceEvent]: ...
     @overload
     def listen(
         self,
         name: Literal["on_stage_instance_update",],
-    ) -> EventCallable[events_overloads.stages.StageInstanceUpdateEvent]: ...
+    ) -> EventCallable[events_overloads_stages.StageInstanceUpdateEvent]: ...
 
     # --- Threads ---
 
@@ -818,22 +838,22 @@ class BotBase(GroupMixin[None]):
             "on_thread_remove",
             "on_thread_delete",
         ],
-    ) -> EventCallable[events_overloads.threads.ThreadEvent]: ...
+    ) -> EventCallable[events_overloads_threads.ThreadEvent]: ...
     @overload
     def listen(
         self,
         name: Literal["on_thread_update",],
-    ) -> EventCallable[events_overloads.threads.ThreadUpdateEvent]: ...
+    ) -> EventCallable[events_overloads_threads.ThreadUpdateEvent]: ...
     @overload
     def listen(
         self,
         name: Literal["on_raw_thread_update",],
-    ) -> EventCallable[events_overloads.threads.RawThreadUpdateEvent]: ...
+    ) -> EventCallable[events_overloads_threads.RawThreadUpdateEvent]: ...
     @overload
     def listen(
         self,
         name: Literal["on_raw_thread_delete",],
-    ) -> EventCallable[events_overloads.threads.RawThreadDeleteEvent]: ...
+    ) -> EventCallable[events_overloads_threads.RawThreadDeleteEvent]: ...
     @overload
     def listen(
         self,
@@ -841,12 +861,12 @@ class BotBase(GroupMixin[None]):
             "on_thread_member_join",
             "on_thread_member_remove",
         ],
-    ) -> EventCallable[events_overloads.threads.ThreadMemberEvent]: ...
+    ) -> EventCallable[events_overloads_threads.ThreadMemberEvent]: ...
     @overload
     def listen(
         self,
         name: Literal["on_raw_thread_member_remove",],
-    ) -> EventCallable[events_overloads.threads.RawThreadMemberRemoveEvent]: ...
+    ) -> EventCallable[events_overloads_threads.RawThreadMemberRemoveEvent]: ...
 
     # --- Voice ---
 
@@ -854,7 +874,7 @@ class BotBase(GroupMixin[None]):
     def listen(
         self,
         name: Literal["on_voice_state_update",],
-    ) -> EventCallable[events_overloads.voice.VoiceStateUpdateEvent]: ...
+    ) -> EventCallable[events_overloads_voice.VoiceStateUpdateEvent]: ...
 
     # --- ext_commands ---
 
@@ -862,7 +882,7 @@ class BotBase(GroupMixin[None]):
     def listen(
         self,
         name: Literal["on_command_error",],
-    ) -> EventCallable[events_overloads.ext_commands.CommandError]: ...
+    ) -> EventCallable[events_overloads_ext_commands.CommandError]: ...
 
     # --- Voice ---
 
@@ -873,7 +893,7 @@ class BotBase(GroupMixin[None]):
             "on_command",
             "on_command_completion",
         ],
-    ) -> EventCallable[events_overloads.ext_commands.Command]: ...
+    ) -> EventCallable[events_overloads_ext_commands.Command]: ...
     def listen(self, name: str = ...) -> Callable[[CFT], CFT]:
         """A decorator that registers another function as an external
         event listener. Basically this allows you to listen to multiple
