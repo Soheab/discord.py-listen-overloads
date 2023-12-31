@@ -31,6 +31,10 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
 ]
 
+[tool.setuptools]
+include-package-data = true
+package = "listen_overloads"
+
 [tool.setuptools.packages.find]
 include = ["listen_overloads*", "listen_overloads.protocols*", "listen_overloads.typings*"]
 
