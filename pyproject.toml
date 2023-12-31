@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "discord.py-listen-overloads"
 description = "A stubs package for discord.py that adds overloads to the commands.Bot.listen decorator."
-version = "2.3.2"
+version = "2.4.0a0"
 authors = [{ name = "Soheab_" }]
 requires-python = ">=3.8"
 keywords = [

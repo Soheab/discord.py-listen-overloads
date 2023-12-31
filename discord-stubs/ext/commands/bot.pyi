@@ -68,6 +68,7 @@ if TYPE_CHECKING:
         channels as events_overloads_channels,
         connection as events_overloads_connection,
         debug as events_overloads_debug,
+        entitlements as events_overloads_entitlements,
         ext_commands as events_overloads_ext_commands,
         gateway as events_overloads_gateway,
         guilds as events_overloads_guilds,
@@ -560,6 +561,18 @@ class BotBase(GroupMixin[None]):
         self,
         name: Literal["on_socket_raw_send",],
     ) -> EventCallable[events_overloads_debug.SocketRawSendEvent]: ...
+
+    # --- Entitlements ---
+
+    @overload
+    def listen(
+        self,
+        name: Literal[
+            "on_entitlement_create",
+            "on_entitlement_delete",
+            "on_entitlement_update",
+        ],
+    ) -> EventCallable[events_overloads_entitlements.EntitlementEvent]: ...
 
     # --- Gateway ---
 
