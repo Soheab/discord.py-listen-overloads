@@ -32,7 +32,7 @@ classifiers = [
 ]
 
 [tool.setuptools.packages.find]
-where = ["."]
+where = ["discord/"]
 
 #[tool.setuptools]
 #packages = [
