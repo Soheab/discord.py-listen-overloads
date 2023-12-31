@@ -852,6 +852,24 @@ class BotBase(GroupMixin[None]):
         name: Literal["on_voice_state_update",],
     ) -> EventCallable[events_overloads.voice.VoiceStateUpdateEvent]: ...
 
+    # --- ext_commands ---
+
+    @overload
+    def listen(
+        self,
+        name: Literal["on_command_error",],
+    ) -> EventCallable[events_overloads.ext_commands.CommandError]: ...
+
+    # --- Voice ---
+
+    @overload
+    def listen(
+        self,
+        name: Literal[
+            "on_command",
+            "on_command_completion",
+        ],
+    ) -> EventCallable[events_overloads.ext_commands.Command]: ...
     def listen(self, name: str = ...) -> Callable[[CFT], CFT]:
         """A decorator that registers another function as an external
         event listener. Basically this allows you to listen to multiple

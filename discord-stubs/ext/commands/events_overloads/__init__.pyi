@@ -4,6 +4,7 @@ from .channels import *
 from .connection import *
 from .debug import *
 from .entitlements import *
+from .ext_commands import *
 from .gateway import *
 from .guilds import *
 from .integrations import *
