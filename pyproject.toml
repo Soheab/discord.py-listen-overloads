@@ -19,9 +19,6 @@ keywords = [
 license = { file = "LICENSE" }
 dependencies = ["discord.py>=2.0.0, <3.0.0"]
 dynamic = ["version", "readme"]
-packages = [
-  { include = "listen_overloads" }
-]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Natural Language :: English",
@@ -34,18 +31,8 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
 ]
 
-[tool.setuptools]
-include-package-data = true
-packages = [
-    "listen_overloads",
-    "listen_overloads.discord",
-    "listen_overloads.discord.ext",
-    "listen_overloads.discord.ext.commands",
-    "listen_overloads.protocols",
-]
-
 [tool.setuptools.packages.find]
-include = ["listen_overloads*", "listen_overloads.protocols*", "listen_overloads.typings*"]
+where = ["listen_overloads/"]
 
 #[tool.setuptools]
 #packages = [
@@ -57,12 +44,6 @@ include = ["listen_overloads*", "listen_overloads.protocols*", "listen_overloads
 #    "listen_overloads.typings.discord.ext.commands*",
 #]
 
-[project.optional-dependencies]
-dev = ["black", "ruff"]
-
-[project.urls]
-homepage = "https://github.com/Soheab/discord.py-listen-overloads"
-repository = "https://github.com/Soheab/discord.py-listen-overloads"
 
 [tool.setuptools.dynamic]
 version = { attr = "listen_overloads.__version__" }
