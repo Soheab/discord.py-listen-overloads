@@ -19,6 +19,9 @@ keywords = [
 license = { file = "LICENSE" }
 dependencies = ["discord.py>=2.0.0, <3.0.0"]
 dynamic = ["version", "readme"]
+packages = [
+  { include = "listen_overloads" }
+]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Natural Language :: English",
@@ -33,6 +36,13 @@ classifiers = [
 
 [tool.setuptools]
 include-package-data = true
+packages = [
+    "listen_overloads",
+    "listen_overloads.discord",
+    "listen_overloads.discord.ext",
+    "listen_overloads.discord.ext.commands",
+    "listen_overloads.protocols",
+]
 
 [tool.setuptools.packages.find]
 include = ["listen_overloads*", "listen_overloads.protocols*", "listen_overloads.typings*"]
