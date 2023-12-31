@@ -33,17 +33,15 @@ classifiers = [
 
 [tool.setuptools]
 packages = [
-    "listen_overloads",
-    "listen_overloads.typings",
-    "listen_overloads.typings.discord",
-    "listen_overloads.typings.discord.app_commands",
-    "listen_overloads.typings.discord.ext",
-    "listen_overloads.typings.discord.ext.commands",
-    "listen_overloads.typings.discord.ext.commands.events_overloads",
-    "listen_overloads.typings.discord.ext.tasks",
-    "listen_overloads.typings.discord.types",
-    "listen_overloads.typings.discord.ui",
-    "listen_overloads.typings.discord.webhook",
+    "discord-stubs",
+    "discord-stubs.app_commands",
+    "discord-stubs.ext",
+    "discord-stubs.ext.commands",
+    "discord-stubs.ext.commands.events_overloads",
+    "discord-stubs.ext.tasks",
+    "discord-stubs.types",
+    "discord-stubs.ui",
+    "discord-stubs.webhook",
 
 
 ]
@@ -53,9 +51,9 @@ packages = [
 #    "listen_overloads",
 #    "listen_overloads.protocols",
 #    "listen_overloads.typings",
-#    "listen_overloads.typings.discord",
-#    "listen_overloads.typings.discord.ext",
-#    "listen_overloads.typings.discord.ext.commands*",
+#    "discord-stubs",
+#    "discord-stubs.ext",
+#    "discord-stubs.ext.commands*",
 #]
 
 
