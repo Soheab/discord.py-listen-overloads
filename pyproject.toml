@@ -4,6 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "discord.py-listen-overloads"
+version = "0.0.0"
 description = "A package that adds overloads to the commands.Bot.listen decorator."
 authors = [{ name = "Soheab_" }]
 requires-python = ">=3.8"
@@ -18,7 +19,6 @@ keywords = [
 ]
 license = { file = "LICENSE" }
 dependencies = ["discord.py>=2.0.0, <3.0.0"]
-dynamic = ["version", "readme"]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Natural Language :: English",
@@ -45,9 +45,9 @@ where = ["discord/"]
 #]
 
 
-[tool.setuptools.dynamic]
-version = { attr = "listen_overloads.__version__" }
-readme = { file = ["README.md"], content-type = "text/markdown" }
+#[tool.setuptools.dynamic]
+# version = { attr = "listen_overloads.__version__" }
+# readme = { file = ["README.md"], content-type = "text/markdown" }
 
 [tool.pyright]
 include = ["listen_overloads", "listen_overloads/protocols", "listen_overloads/typings", "listen_overloads/typings/discord/", "listen_overloads/typings/discord/ext", "listen_overloads/typings/discord/ext/commands"]
